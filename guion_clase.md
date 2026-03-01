@@ -723,14 +723,14 @@ total_bytes=0
 
 ### Paso 5 — Bucle de migración
 
-Recorre todos los archivos del origen con un `for`, mueve cada uno con `mv` y usa `$?` para saber si salió bien:
+Recorre todos los archivos del origen con un `for`, copia cada uno con `cp` y usa `$?` para saber si salió bien:
 
 ```bash
 for archivo in "$ORIGEN"/*; do
     if [ -f "$archivo" ]; then
         nombre=$(basename "$archivo")
         tamanio=$(ls -l "$archivo" | cut -f5 -d " ")
-        mv "$archivo" "$DESTINO/"
+        cp "$archivo" "$DESTINO/"
         if [ $? -eq 0 ]; then
             archivos_migrados+=("$nombre ($tamanio bytes)")
             total_bytes=$(($total_bytes + $tamanio))
@@ -796,7 +796,6 @@ if [ $? -eq 0 ]; then
     echo "Email enviado a $EMAIL"
 else
     echo "Advertencia: no se pudo enviar el email."
-    echo "Instala mailutils con: sudo apt install mailutils"
 fi
 ```
 
