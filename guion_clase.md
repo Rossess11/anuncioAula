@@ -92,8 +92,6 @@ Al ejecutar un script podemos pasarle datos desde fuera:
 
 Dentro del script, esos valores se reciben con variables especiales:
 
-![Variables especiales de Bash](variables-especiales.png)
-
 | Variable | Significado |
 |---|---|
 | `$0` | Nombre del script |
@@ -274,8 +272,6 @@ fi
 ```
 
 ### Operadores de comparación
-
-![Operadores condicionales en Bash](condicionales.png)
 
 **Comparación numérica:**
 
