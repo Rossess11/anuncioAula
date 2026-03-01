@@ -767,12 +767,11 @@ done
 
 Una vez el script base funcione correctamente, amplíalo con las siguientes funcionalidades:
 
-### Extra 1 — Variable de fecha y email
+### Extra 1 — Variable de fecha
 
 Añade estas variables al inicio del script, justo después del shebang:
 
 ```bash
-EMAIL="tuemail@dominio.com"
 FECHA=$(date "+%Y-%m-%d %H:%M:%S")
 ```
 
@@ -786,22 +785,9 @@ for f in "${archivos_migrados[@]}"; do
     INFORME+="  - $f\n"
 done
 INFORME+="\nTotal: ${#archivos_migrados[@]} archivos, $total_bytes bytes"
+
+echo -e "$INFORME"
 ```
-
-### Extra 3 — Enviar el email
-
-```bash
-echo -e "$INFORME" | mail -s "Migración $FECHA" "$EMAIL" 2>/dev/null
-if [ $? -eq 0 ]; then
-    echo "Email enviado a $EMAIL"
-else
-    echo "Advertencia: no se pudo enviar el email."
-fi
-```
-
-> `mail` es un comando del sistema para enviar correos desde la terminal. Requiere tener instalado el paquete `mailutils`.
-
----
 
 ## Referencias
 
