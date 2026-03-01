@@ -763,7 +763,7 @@ done
 
 ---
 
-## Ejercicio extra — Envío del informe por email
+## Ejercicio extra — Construccion de informe con hora
 
 Una vez el script base funcione correctamente, amplíalo con las siguientes funcionalidades:
 
